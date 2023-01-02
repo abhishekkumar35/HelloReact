@@ -12,7 +12,12 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "browserslist": "^4.21.4",
     "parcel": "^2.8.2",
     "process": "^0.11.10"
-  }
+  },
+  "browserslist": [
+    "last 75 version"
+  ]
+  
 }
