@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Restaurant from "./Restaurant";
+import Shimmer from "../Shimmer/Shimmer";
 
 import Card from "../UI/Card";
 import Search from "../Header/Search";
-import "../common.css";
+import "../Common.css";
 import { restaurantData } from "../RestaurantData";
 
 const filterData = (restaurants, searchTxt) => {
@@ -44,21 +45,29 @@ function Restaurants() {
   useEffect(() => {
     console.log(filteredRestaurants);
   }, [filteredRestaurants]);
-
-  return (
-    <>
-      <Search restaurants={restaurants} setFilteredData={setFilteredData} />
-      <Card>
-        {filteredRestaurants.map((res) => {
-          return (
-            <>
-              <Restaurant key={res.id} res={res} />
-            </>
-          );
-        })}
-      </Card>
-    </>
-  );
+  if (restaurants.length === 0) {
+    return (
+      <>
+        <Search restaurants={restaurants} setFilteredData={setFilteredData} />
+        <Shimmer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Search restaurants={restaurants} setFilteredData={setFilteredData} />
+        <Card>
+          {filteredRestaurants.map((res) => {
+            return (
+              <>
+                <Restaurant key={res.id} res={res} />
+              </>
+            );
+          })}
+        </Card>
+      </>
+    );
+  }
 }
 
 export default Restaurants;

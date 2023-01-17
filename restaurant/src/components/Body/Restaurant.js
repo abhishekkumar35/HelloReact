@@ -1,4 +1,5 @@
 import React from "react";
+import "../Common.css";
 
 function Restaurant(props) {
   const res = props.res;

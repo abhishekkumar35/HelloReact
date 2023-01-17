@@ -5,6 +5,11 @@
     border: 1px solid gray;
     flex-wrap: wrap;
 }
+.background{
+    background-color: rgb(252, 236, 230) !important;
+    border:none !important;
+   height:250px;
+}
 
 .card-body{
     background-color: aliceblue;

@@ -1,12 +1,8 @@
 import React from "react";
-import "../common.css";
+import "../Common.css";
 
 function Card(props) {
-  return (
-    <div className="card">
-      {props.children}
-    </div>
-  );
+  return <div className="card">{props.children}</div>;
 }
 
 export default Card;
