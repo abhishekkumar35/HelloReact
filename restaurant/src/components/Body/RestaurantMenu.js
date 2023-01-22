@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
     }
     const jsonMenuData = await restaurantMenuDataPromise.json();
     setMenuData(jsonMenuData.data.menu);
-    console.log(jsonMenuData.data);
+    console.log(jsonMenuData.data + " menu data");
   };
 
   useEffect(() => {
