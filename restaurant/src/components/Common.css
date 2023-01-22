@@ -1,0 +1,48 @@
+.card{
+    display: flex;
+    justify-content: space-around;
+    padding:5px;
+    border: 1px solid gray;
+    flex-wrap: wrap;
+}
+.background{
+    background-color: rgb(252, 236, 230) !important;
+    border:none !important;
+   height:250px;
+}
+
+.card-body{
+    background-color: aliceblue;
+    color:black;
+    margin:10px;
+    border: 1px solid black;
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5% 5%;
+    padding:5px;
+    
+        
+    
+
+    
+}
+
+.image{
+   
+    border: 1px solid gray;
+    background-color: black;
+    border-radius: 10% 10%;
+    width:100%;
+    margin:auto;
+    
+}
+
+.title{
+    padding:5px;
+    
+    font-size: 10px;
+    
+    text-align: center;
+    
+}
