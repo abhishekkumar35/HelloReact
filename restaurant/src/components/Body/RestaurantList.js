@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Restaurant from "./Restaurant";
 import Shimmer from "../Shimmer/Shimmer";
-
+import { Link } from "react-router-dom";
 import Card from "../UI/Card";
 import Search from "../Header/Search";
 import "../Common.css";
@@ -17,7 +17,7 @@ const filterData = (restaurants, searchTxt) => {
   return filteredData;
 };
 
-function Restaurants() {
+function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
@@ -60,7 +60,10 @@ function Restaurants() {
           {filteredRestaurants.map((res) => {
             return (
               <>
-                <Restaurant key={res.id} res={res} />
+                {/* {console.log(res)} */}
+                <Link to={"/restaurant/" + res.data.id}>
+                  <Restaurant key={res.data.id} res={res} />
+                </Link>
               </>
             );
           })}
@@ -70,4 +73,4 @@ function Restaurants() {
   }
 }
 
-export default Restaurants;
+export default RestaurantList;
