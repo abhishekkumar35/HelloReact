@@ -7,11 +7,15 @@ function Menu(props) {
   const classes = props.classes;
   return (
     <>
-      <h1 className={classes}>Home</h1>
-      <Link to="/about">
-        <About className={classes} />
+      <Link to="/">
+        <h1 className={classes}>Home</h1>
       </Link>
-      <Cart className={classes} />
+      <Link to="/about">
+        <h1 className={classes}>About</h1>
+      </Link>
+      <Link to="/cart">
+        <h1 className={classes}>Cart</h1>
+      </Link>
     </>
   );
 }

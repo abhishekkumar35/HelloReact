@@ -3,6 +3,9 @@ import "../Common.css";
 
 function Restaurant(props) {
   const res = props.res;
+  if (!res) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div key={res.id} className="card-body">
       <img
