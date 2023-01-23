@@ -1,30 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+// import { RESTAURANT_MENU } from "../../Constant";
+import { IMAGE_URL } from "../../Constant";
+import { useRestaurantMenu } from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const { id } = useParams();
-  const [menuData, setMenuData] = useState({});
-  const getRestaurantMenu = async () => {
-    const restaurantMenuDataPromise = await fetch(
-      `https://www.swiggy.com/dapi/menu/v4/full?lat=17.4271377&lng=78.32612209999999&menuId=${id}`
-    );
-    if (!restaurantMenuDataPromise.ok) {
-      throw new Error("Failed to fetch restaurant menu.");
-    }
-    const jsonMenuData = await restaurantMenuDataPromise.json();
-    setMenuData(jsonMenuData.data.menu);
-    console.log(jsonMenuData.data + " menu data");
-  };
+  const { resId } = useParams();
+  const restaurant = useRestaurantMenu(resId);
 
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
+  if (!restaurant) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <p>
-      {id} :
-      {Object.values(menuData).map((item, index) => (
-        <li key={index}>{item.name}</li>
+      {resId}
+      <h1>{restaurant?.name}</h1>
+      <img src={IMAGE_URL + restaurant?.cloudinaryImageId} />
+      {Object.values(restaurant?.menu?.items).map((item, index) => (
+        <li key={index}>
+          {item?.name} = Rs {item?.price.toString().slice(0, -2)}
+        </li>
       ))}
     </p>
   );
